@@ -1,5 +1,3 @@
-"use client";
-
 import { useCallback, useSyncExternalStore } from "react";
 import type { Progress } from "../types";
 
@@ -11,7 +9,9 @@ let current: Progress | null = null;
 
 function load(): Progress {
   try {
-    const parsed: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}");
+    const parsed: unknown = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) ?? "{}",
+    );
     if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
       return Object.fromEntries(
         Object.entries(parsed).filter(([, done]) => done === true),
@@ -60,7 +60,11 @@ function subscribe(notify: () => void) {
 }
 
 export function useProgress() {
-  const progress = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const progress = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   const toggle = useCallback((topicId: string) => {
     const next = { ...getSnapshot() };
