@@ -43,6 +43,11 @@ function getServerSnapshot(): Progress {
   return EMPTY;
 }
 
+/** Test-only: forget the cached progress so the next read reloads it from localStorage. */
+export function resetProgressStore() {
+  current = null;
+}
+
 function subscribe(notify: () => void) {
   listeners.add(notify);
   // Keep other open tabs in sync.
