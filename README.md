@@ -1,5 +1,7 @@
 # Roadmap Tracker
 
+[![CI](https://github.com/fili32/roadmap-tracker/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/fili32/roadmap-tracker/actions/workflows/ci.yml)
+
 A small Next.js app for working through an 8-week learning roadmap: tick off topics week by week and track your overall progress.
 
 **Live demo:** https://roadmap-tracker-navy-five.vercel.app/
